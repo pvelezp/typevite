@@ -3,20 +3,20 @@
     padding:1rem;
     display:flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap:2rem;
     overflow:visible;
     @media(max-width:700px){
-        gap:0.2rem;
-    height: 60vh;
-    padding:0.5rem;
-
+    gap:0rem;
+    height: 40vh;
+    padding:0;
     }
     &InvisibleInput{
-        opacity: 0;
+       transform: translateX(-50rem);
     }
     &Letter{
-        width:5rem;
-        height:5rem;
+        width:6vw;
+        height:6vw;
         padding:1rem;
         border-radius: 50%;
         background-color: transparent;
@@ -25,9 +25,11 @@
         font-size: 2.5vw;
         font-weight: bold;
         pointer-events: none;
-        @media (max-width:600px){
+        color:#fafafa;
+        @media (max-width:700px){
             width:3rem;
-            height:3rem;   
+            height:3rem; 
+            font-size: 1rem;
         }
     }
 }

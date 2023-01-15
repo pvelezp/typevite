@@ -83,12 +83,12 @@ export const GameBoard = () => {
   }, [lastLetter])
   return (
     <div className={styles.gameboard}>
-<div /* className={styles.gameboardInvisibleInput} */>
-<input ref={inputRef}  />
+<div className={styles.gameboardInvisibleInput}>
+    
+<input ref={inputRef} onBlur={()=>inputRef.current?.focus()}  />
   </div>        {
             grid.map(item =>(
                 <button
-                onClick={()=> {}}
                 style={{backgroundColor:item.active ? '#7f37c2' : ''}}
                 className={`${styles.gameboardLetter}`} key={item.id}>
                     {(item.active || item.completed)? item.letter :  null}

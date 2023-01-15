@@ -36,9 +36,9 @@ export const Header = () => {
           isGameStarted ?   `Time left: ${timeLeft}`:null
           }
         </div>
-     { name   ? <div>
-          <button style={{backgroundColor:'#1a1a1a'}} onClick={handleLogout}>
-            Log off
+     { name && !isGameStarted  ? <div>
+          <button style={{backgroundColor:'orange'}} onClick={handleLogout}>
+          <img src='/logout.png' color='white' />
           </button>
         </div>: null}
      {isGameStarted ?   <div>Score: {points}</div> : null}

@@ -1,11 +1,40 @@
 .introPage{
-    height:calc(100vh - 56px - 50px);
+    flex:1;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding:4rem 2rem;
+        @media(max-width:600px){
+            padding:2rem;
+        }
+    &Top{
+        color:#fafafa;
+        >h3{
+            margin-bottom: 1rem;
+        }
+        >ul{
+            list-style: none;
+            @media(max-width:600px){
+                column-count: 2;
+                gap:2rem;
+            } 
+            li>span{
+                color:#ebab4b
+            }
+        }
+    }
+    &Container{
+        display:flex;
+        gap:2rem;
+        @media(max-width:600px){
+            flex-direction: column;
+        }
+    }
     &Description{
         margin-bottom: 2rem;
+        >strong{
+            color:#fafafa;
+        }
         >small{
             display:none;
             @media(max-width:600px){
@@ -36,12 +65,19 @@
             >button{
                 width:100%;
                 padding:0.5rem;
+                display:flex;
+                align-items: center;
+                justify-content: center;
+                gap:0.5rem;
             }
         }
         &Buttons{
             margin-bottom: 3rem;
             display: flex;
-            gap:0.5rem
+            gap:0.5rem;
+            @media(max-width:600px){
+                margin-bottom: 0;
+            }
         }
         &Submit{
             button{

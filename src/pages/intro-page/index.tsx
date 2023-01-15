@@ -60,10 +60,10 @@ const [user, loading] = useAuthState(auth as any);
 
         <div className={styles.introPageDescription}>
            <strong>
-           Type the letters of the bubbles the quickest you can in 1 minute! Wanna try?
+           Type the letters of the bubbles before it explodes the quickest you can in 1 minute! Wanna try?
            </strong>
            <small>
-                This is a game specially made for wider dimensions. Please play on desktop!
+                This game was specially made to play in desktop. Consider it.Thank you!
            </small>
         </div>
       {isGameOver ?  <div className={styles.introPageCongrats}>
@@ -81,14 +81,16 @@ const [user, loading] = useAuthState(auth as any);
             </div>
         </section>
         </div> : null}
-       <div style={{display:'flex', gap:32}}>
+       <div className={styles.introPageContainer}>
        <form 
         className={styles.introPageForm}
         onSubmit={handleSubmit}>
      {!name ?  <div
        className={styles.introPageFormName}
        >
-        <button type='button' onClick={signIn}>Sign In</button>
+        <button type='button' onClick={signIn}>Sign In with Google
+        <img height={16} src="/google.png" />
+        </button>
        </div>: `Hi ${name}!`}
     <h4>Choose a level:</h4>
 <div
@@ -97,7 +99,7 @@ const [user, loading] = useAuthState(auth as any);
 {
     difficultyModes.map(({id,text,status}) =>(
         <button
-        style={{backgroundColor: modeSelected !== null && modeSelected===status ? 'orange': 'purple'}}
+        style={{backgroundColor: modeSelected !== null && modeSelected===status ? 'red': 'orange'}}
 
         type="button" onClick={()=> handleMode(status)} key={id}>
             {text}
@@ -108,12 +110,14 @@ const [user, loading] = useAuthState(auth as any);
 <div
         className={styles.introPageFormSubmit}
 >
-    <button disabled={(!name) || !modeSelected } type="submit" >
+    <button style={{color:'black',backgroundColor:(!name || !modeSelected ) ? 'lightgray':'purple'}} disabled={(!name) || !modeSelected } type="submit" >
         Let's go!
     </button>
 </div>
         </form>
-        <div>
+        <div
+        className={styles.introPageTop}
+        >
 <h3>
 Top players!
   </h3>    
@@ -122,7 +126,9 @@ Top players!
 topPlayers?.map((player,i) =>{
   const [firstName, lastName] = player.user.split(' ')
   return(
-  <li key={i}>{i+1}. {`${firstName} ${lastName ? lastName[0]+'.' : ''}`} - {player.puntaje}  {i===0? '👑' :null}</li>
+  <li key={i}>
+    {i+1}
+    . {`${firstName} ${lastName ? lastName[0]+'.' : ''}`} - <span>{player.puntaje}</span>  {i===0? '👑' :null}</li>
 )})
     }
   </ul>
